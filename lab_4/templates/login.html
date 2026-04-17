@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+<body>
+<h1>Вход</h1>
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+<form method="POST">
+    <p>Email:</p>
+    <input type="text" name="email">
+    <p>Пароль:</p>
+    <input type="password" name="password">
+    <button type="submit">Войти</button>
+</form>
+<a href="/signup">Регистрация</a>
+</body>
+</html>
