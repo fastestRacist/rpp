@@ -21,7 +21,7 @@ class TestTriangleFunction(unittest.TestCase):
         with self.assertRaises(IncorrectTriangleSides):
             get_triangle_type(-1, 5, 5)
 
-    def test_invalid(self):
+    def test_length(self):
         with self.assertRaises(IncorrectTriangleSides):
             get_triangle_type(1, 2, 3)
 
