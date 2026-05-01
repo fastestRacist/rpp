@@ -1,0 +1,17 @@
+Позитивные тесты:
+
+1. x= 3, y = 3, z = 3 
+Вывод: equilateral
+2. x = 5, y = 5, z = 3
+Вывод: isosceles
+3. x = 4,y = 5, z = 6
+Вывод: nonequilateral
+
+Негативные тесты:
+
+1. x = 0, y = 5, z = 5 
+Вывод: IncorrectTriangleSides
+2. x = -1, y = 5, z = 5
+Вывод: IncorrectTriangleSides
+3. x = 1, y = 2, z = 3
+Вывод: IncorrectTriangleSides
