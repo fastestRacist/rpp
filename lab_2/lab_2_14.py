@@ -1,6 +1,7 @@
 text = input('Введите строку: ')
+count = 0
 text = text + ' '
 for i in range(len(text)):
     if not text[i].isalpha() and text[i-1] == 'u':
-        text += text[i]
-    print(text)
+        count += 1
+print(count)
