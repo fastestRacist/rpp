@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление валютами</title>
+    <style>
+        table { border-collapse: collapse; width: 50%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        .result-box { margin-top: 20px; padding: 15px; border: 2px solid green; background-color: #f9fff9; }
+    </style>
+</head>
+<body>
+
+<h1>Список валют</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Курс</th>
+    </tr>
+    {% for currency in currencies %}
+    <tr>
+        <td>{{ currency.id }}</td>
+        <td>{{ currency.currency_name }}</td>
+        <td>{{ currency.rate }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Добавление валюты</h2>
+<form action="/load" method="post">
+    <input type="text" name="currency_name" placeholder="Название" required>
+    <input type="text" name="rate" placeholder="Курс" required>
+    <button type="submit">Добавить</button>
+</form>
+
+<h2>Обновление валюты</h2>
+<form action="/update_currency" method="post">
+    <input type="text" name="currency_name" placeholder="Название" required>
+    <input type="text" name="rate" placeholder="Новый курс" required>
+    <button type="submit">Обновить</button>
+</form>
+
+<h2>Удаление валюты</h2>
+<form action="/delete" method="post">
+    <input type="text" name="currency_name" placeholder="Название" required>
+    <button type="submit">Удалить</button>
+</form>
+
+<h2>Конвертация</h2>
+<form action="/convert" method="get">
+    <input type="text" name="currency_name" placeholder="Название" required>
+    <input type="text" name="total_sum" placeholder="Сумма" required>
+    <button type="submit">Конвертировать</button>
+</form>
+
+{% if conversion_result is not none %}
+<div class="result-box">
+    <h3>Результат конвертации:</h3>
+    <p>Валюта: {{ curr_name }}</p>
+    <p>Итоговая сумма: <strong>{{ conversion_result }}</strong></p>
+</div>
+{% endif %}
+
+</body>
+</html>
